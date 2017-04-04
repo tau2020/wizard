@@ -1,0 +1,51 @@
+<div class="xs-wizard">
+
+    <h2>{{mainTitle}}</h2>
+
+    <div ng-transclude></div>
+
+    <div class="row" >
+
+        <div class="col-xs-2">
+            <div class="btn-group btn-group pull-left">
+                <button class="btn  btn-primary"  ng-click="prevPage()" ng-show="hasPrev()">
+                    Previous
+                </button>
+            </div>
+        </div>
+
+        <div class="col-xs-8">
+            <!-- Begin Page Breadcrumb  -->
+            <div class="center-block text-center" ng-if="hasBreadcrumbs==true && pages.length > 1">
+                <div class="btn-group btn-group">
+                    <button type="button" class="btn  btn-default" ng-class="{'btn-primary': page.activePage==true}" ng-click="goToPage($index)"
+                        ng-repeat="page in pages">
+
+                        {{page.pageTag || $index + 1}}
+                    </button>
+
+                </div>
+            </div>
+            <!-- // End Page Breadcrumbs -->
+        </div>
+
+        <div class="col-xs-2">
+            <div class="btn-group btn-group pull-right">
+         <!--       <button class="btn btn-small btn-default" ng-if="hasCancel==true" ng-click="cancel()">
+                    Cancel
+                </button>-->
+
+               <!-- <button class="btn btn-small btn-primary" ng-if="hasSave==true" ng-click="save()" ng-hide="hasNext()">
+                    {{saveText || "Save"}}
+                </button>-->
+
+                <button class="btn  btn-primary" ng-click="nextPage()" ng-show="hasNext()">
+                    Next
+                </button>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
